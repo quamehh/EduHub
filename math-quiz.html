@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quiz - EduHub</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #f4f6f9; color: #333; padding-bottom: 40px; }
+        header { background-color: #1a365d; color: white; padding: 1rem; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 600px; margin: 0 auto; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #4299e1; text-decoration: none; }
+        .back-btn { color: white; text-decoration: none; background-color: #718096; padding: 6px 15px; border-radius: 4px; }
+        .container { max-width: 600px; margin: 30px auto; padding: 0 20px; }
+        h1 { text-align: center; color: #1a365d; margin-bottom: 25px; }
+        .question-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .question-number { font-weight: bold; color: #dd6b20; margin-bottom: 8px; text-transform: uppercase; font-size: 0.85rem; }
+        .question-text { font-size: 1.1rem; font-weight: 600; margin-bottom: 15px; color: #2d3748; }
+        .options-list { list-style: none; }
+        .option-item { display: flex; align-items: center; padding: 12px; background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 10px; cursor: pointer; font-size: 1rem; }
+        .option-item input { margin-right: 12px; transform: scale(1.2); }
+        .submit-btn { display: block; width: 100%; background: #dd6b20; color: white; border: none; padding: 15px; border-radius: 6px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">EduHub</a>
+            <a href="math-lessons.html" class="back-btn">← Back to Lesson</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Math Challenge</h1>
+        
+        <form>
+            <!-- Question 1 -->
+            <div class="question-card">
+                <div class="question-number">Question 1</div>
+                <div class="question-text">In a fraction, what name is given to the number written at the top?</div>
+                <ul class="options-list">
+                    <li><label class="option-item"><input type="radio" name="mq1" value="A"> Denominator</label></li>
+                    <li><label class="option-item"><input type="radio" name="mq1" value="B"> Numerator</label></li>
+                    <li><label class="option-item"><input type="radio" name="mq1" value="C"> Remainder</label></li>
+                </ul>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-card">
+                <div class="question-number">Question 2</div>
+                <div class="question-text">If you divide a complete loaf of bread into 2 equal parts, what fraction represents 1 part?</div>
+                <ul class="options-list">
+                    <li><label class="option-item"><input type="radio" name="mq2" value="A"> $\frac{1}{2}$ (Half)</label></li>
+                    <li><label class="option-item"><input type="radio" name="mq2" value="B"> $\frac{1}{4}$ (Quarter)</label></li>
+                    <li><label class="option-item"><input type="radio" name="mq2" value="C"> $\frac{3}{4}$</label></li>
+                </ul>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit My Score</button>
+        </form>
+    </main>
+
+    <script>
+        document.querySelector('form').onsubmit = function(event) {
+            event.preventDefault(); 
+            
+            const correctAnswers = {
+                mq1: { answer: 'B', name: 'Question 1 (Top Number)' },
+                mq2: { answer: 'A', name: 'Question 2 (Half Fraction)' }
+            };
+            
+            let score = 0;
+            let totalQuestions = Object.keys(correctAnswers).length;
+            let reportDetails = ""; 
+            const formData = new FormData(event.target);
+            
+            for (let question in correctAnswers) {
+                let studentAnswer = formData.get(question);
+                let correctAnswerLetter = correctAnswers[question].answer;
+                let questionName = correctAnswers[question].name;
+                
+                if (studentAnswer === correctAnswerLetter) {
+                    score++;
+                    reportDetails += "✅ " + questionName + ": Correct!\n";
+                } else {
+                    let chosen = studentAnswer ? studentAnswer : "No answer selected";
+                    reportDetails += "❌ " + questionName + ": Wrong!\n   (Your choice: " + chosen + " | Correct Answer: " + correctAnswerLetter + ")\n";
+                }
+            }
+            
+            alert("🎉 Math Quiz Results\n\nTotal Score: " + score + " / " + totalQuestions + "\n\nBreakdown:\n" + reportDetails);
+        };
+    </script>
+</body>
+</html>

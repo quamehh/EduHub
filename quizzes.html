@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quizzes - EduHub</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            background-color: #1a365d;
+            color: white;
+            padding: 1rem;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4299e1;
+            text-decoration: none;
+        }
+
+        .back-btn {
+            color: white;
+            text-decoration: none;
+            background-color: #4299e1;
+            padding: 6px 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: #3182ce;
+        }
+
+        /* Main Quiz Container */
+        .quiz-container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a365d;
+            margin-bottom: 30px;
+        }
+
+        /* Question Box Styling */
+        .question-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+        }
+
+        .question-number {
+            font-size: 0.85rem;
+            color: #4299e1;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .question-text {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+
+        /* Option Labels */
+        .options-list {
+            list-style: none;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option-item:hover {
+            background-color: #edf2f7;
+            border-color: #cbd5e0;
+        }
+
+        .option-item input[type="radio"] {
+            margin-right: 12px;
+            transform: scale(1.2);
+            accent-color: #4299e1;
+        }
+
+        /* Submit Button */
+        .submit-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .score-btn {
+            background-color: #48bb78;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .score-btn:hover {
+            background-color: #38a169;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #718096;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">EduHub</a>
+            <a href="index.html" class="back-btn">← Back to Home</a>
+        </div>
+    </header>
+
+    <main class="quiz-container">
+        <h1>General Knowledge Practice Quiz</h1>
+
+        <form>    
+            
+            <div class="question-card">
+                <div class="question-number">Question 1</div>
+                <div class="question-text">Which of the following is a primary color?</div>
+                <ul class="options-list">
+                    <li><label class="option-item"><input type="radio" name="q1" value="A"> Green</label></li>
+                    <li><label class="option-item"><input type="radio" name="q1" value="B"> Blue</label></li>
+                    <li><label class="option-item"><input type="radio" name="q1" value="C"> Orange</label></li>
+                    <li><label class="option-item"><input type="radio" name="q1" value="D"> Purple</label></li>
+                </ul>
+            </div>
+
+            <div class="question-card">
+                <div class="question-number">Question 2</div>
+                <div class="question-text">What is the main source of light and energy for the Earth?</div>
+                <ul class="options-list">
+                    <li><label class="option-item"><input type="radio" name="q2" value="A"> The Moon</label></li>
+                    <li><label class="option-item"><input type="radio" name="q2" value="B"> The Stars</label></li>
+                    <li><label class="option-item"><input type="radio" name="q2" value="C"> The Sun</label></li>
+                    <li><label class="option-item"><input type="radio" name="q2" value="D"> Clouds</label></li>
+                </ul>
+            </div>
+
+            <div class="question-card">
+                <div class="question-number">Question 3</div>
+                <div class="question-text">Which punctuation mark is used at the end of a question sentence?</div>
+                <ul class="options-list">
+                    <li><label class="option-item"><input type="radio" name="q3" value="A"> Full Stop (.)</label></li>
+                    <li><label class="option-item"><input type="radio" name="q3" value="B"> Comma (,)</label></li>
+                    <li><label class="option-item"><input type="radio" name="q3" value="C"> Exclamation Mark (!)</label></li>
+                    <li><label class="option-item"><input type="radio" name="q3" value="D"> Question Mark (?)</label></li>
+                </ul>
+            </div>
+
+            <div class="submit-container">
+                <button type="submit" class="score-btn">Submit My Answers</button>
+            </div>
+
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 EduHub Portal.</p>
+    </footer>
+<script>
+    document.querySelector('form').onsubmit = function(event) {
+    event.preventDefault(); 
+    
+    // 1. Define the correct answers and a simple description for the report
+    const correctAnswers = {
+        q1: { answer: 'B', name: 'Question 1 (Primary Color)' },
+        q2: { answer: 'C', name: 'Question 2 (Source of Light/Energy)' },
+        q3: { answer: 'D', name: 'Question 3 (Punctuation Mark)' }
+    };
+    
+    let score = 0;
+    let totalQuestions = Object.keys(correctAnswers).length;
+    let reportDetails = ""; // This will hold our list of right and wrong answers
+    
+    const formData = new FormData(event.target);
+    
+    // 2. Loop through each question to check the student's work
+    for (let question in correctAnswers) {
+        let studentAnswer = formData.get(question);
+        let correctAnswerLetter = correctAnswers[question].answer;
+        let questionName = correctAnswers[question].name;
+        
+        if (studentAnswer === correctAnswerLetter) {
+            score++;
+            reportDetails += "✅ " + questionName + ": Correct!\n";
+        } else {
+            // Show what they chose versus what was actually correct
+            let chosen = studentAnswer ? studentAnswer : "No answer selected";
+            reportDetails += "❌ " + questionName + ": Wrong!\n   (Your choice: " + chosen + " | Correct Answer: " + correctAnswerLetter + ")\n";
+        }
+    }
+    
+    // 3. Display everything beautifully in a single alert window
+    alert("🎉 Quiz Results Summary\n\n" + 
+          "Total Score: " + score + " / " + totalQuestions + "\n\n" + 
+          "Breakdown:\n" + reportDetails);
+};
+</script>
+
+</body>
+</html>
